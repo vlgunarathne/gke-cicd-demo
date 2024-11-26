@@ -1,0 +1,8 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/my-demo-project-442910/nodejs-app:$COMMIT_SHA', '.']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/my-demo-project-442910/nodejs-app:$COMMIT_SHA']
+
+images:
+- 'gcr.io/my-demo-project-442910/nodejs-app:$COMMIT_SHA'
