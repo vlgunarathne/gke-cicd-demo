@@ -8,10 +8,10 @@ steps:
   - 'deploy'
   - 'releases'
   - 'create'
-  - '$COMMIT_SHA'
+  - 'nodejs-service-release-$COMMIT_SHA'
   - '--delivery-pipeline=my-gke-demo-app-1'
   - '--region=us-central1'
-  - '--images=nodejs-app=gcr.io/my-demo-project-442910/nodejs-app@$COMMIT_SHA'
+  - '--images=nodejs-app=gcr.io/my-demo-project-442910/nodejs-app:$COMMIT_SHA'
 options:
   logging: CLOUD_LOGGING_ONLY
 
