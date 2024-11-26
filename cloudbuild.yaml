@@ -3,6 +3,15 @@ steps:
   args: ['build', '-t', 'gcr.io/my-demo-project-442910/nodejs-app:$COMMIT_SHA', '.']
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/my-demo-project-442910/nodejs-app:$COMMIT_SHA']
+- name: 'gcr.io/cloud-builders/gcloud'
+  args:
+  - 'deploy'
+  - 'releases'
+  - 'create'
+  - '$COMMIT_SHA'
+  - '--delivery-pipeline=my-gke-demo-app-1'
+  - '--region=us-central1'
+  - '--images=nodejs-app=gcr.io/my-demo-project-442910//nodejs-app:$COMMIT_SHA'
 options:
   logging: CLOUD_LOGGING_ONLY
 
