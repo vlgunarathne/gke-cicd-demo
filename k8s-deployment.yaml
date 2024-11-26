@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: nodejs-service
-        image: gcr.io/my-demo-project-442910/nodejs-service:latest
+        image: gcr.io/my-demo-project-442910/nodejs-app:latest
         ports:
         - containerPort: 3000
 ---
