@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: nodejs-service
 spec:
+  serviceAccountName: artifact-reader
   replicas: 2
   selector:
     matchLabels:
