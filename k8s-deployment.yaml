@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   name: nodejs-service
 spec:
-  serviceAccountName: artifact-reader
   replicas: 2
   selector:
     matchLabels:
@@ -13,6 +12,7 @@ spec:
       labels:
         app: nodejs-service
     spec:
+      serviceAccountName: artifact-reader
       containers:
       - name: nodejs-service
         image: gcr.io/my-demo-project-442910/nodejs-app:latest
