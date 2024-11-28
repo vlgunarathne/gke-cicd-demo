@@ -42,10 +42,8 @@ app.put('/issues/:id', (req, res) => {
 // Delete an issue
 app.delete('/issues/:id', (req, res) => {
   const issueIndex = issues.findIndex(i => i.id === parseInt(req.params.id));
-  if (issueIndex === -1) return res.status(404).send('Issue not found');
-
-  const deletedIssue = issues.splice(issueIndex, 1);
-  res.send(deletedIssue);
+  if (issueIndex !== -1) issues.splice(issueIndex, 1);
+  res.status(200).send('Issue deleted');
 });
 
 app.listen(port, () => {
