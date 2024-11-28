@@ -25,5 +25,6 @@ kind: Target
 metadata:
   name: cluster-prod
 description: production cluster
+requireApproval: true
 gke:
   cluster: projects/my-demo-project-442910/locations/us-central1-c/clusters/cluster-prod
