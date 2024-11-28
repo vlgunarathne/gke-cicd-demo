@@ -26,14 +26,14 @@ app.get('/issues', (req, res) => {
 // View a single issue
 app.get('/issues/:id', (req, res) => {
   const issue = issues.find(i => i.id === parseInt(req.params.id));
-  if (!issue) return res.status(404).send('Issue not found');
+  if (!issue) return res.status(404).send(`Issue with ID : ${req.params.id} not found`);
   res.send(issue);
 });
 
 // Update an issue
 app.put('/issues/:id', (req, res) => {
   const issue = issues.find(i => i.id === parseInt(req.params.id));
-  if (!issue) return res.status(404).send('Issue not found');
+  if (!issue) return res.status(404).send(`Issue with ID : ${req.params.id} not found`);
 
   Object.assign(issue, req.body);
   res.send(issue);
